@@ -11,6 +11,11 @@ A simple Java URL Shortener API for android
 **a).** Simple java library for shortening URLs'.  
 
 # Implementation 
+Library is available on JCenter, simply add the following line in your app `build.gradle` 
+```
+implementation'the.bot.box:shorty:{latest-version}'
+```  
+where `{latest-version}` corresponds to latest published version <a href='https://bintray.com/boxbotbarry/maven/shorty/_latestVersion'><img src='https://api.bintray.com/packages/boxbotbarry/maven/shorty/images/download.svg'></a>
 
 # API Usage  
 

@@ -18,6 +18,23 @@ implementation'the.bot.box:shorty:{latest-version}'
 where `{latest-version}` corresponds to latest published version <a href='https://bintray.com/boxbotbarry/maven/shorty/_latestVersion'><img src='https://api.bintray.com/packages/boxbotbarry/maven/shorty/images/download.svg'></a>
 
 # API Usage  
+```
+                 Shorty shorty = new Shorty.Builder()
+                        .setURL("htttp:thebotbox.online)
+                        .build();
+                        
+                 shorty.TLDR(new Shorty.Callback() {
+                     @Override
+                     public void shortURL(final String url) {
+                      // result shortened url 
+                     }
+
+                     @Override
+                     public void onError(String error) {
+                  // error while url shortening 
+                     }
+                 });        
+```
 
 #   License  
 ![alt tag](https://img.shields.io/github/license/mashape/apistatus.svg)  

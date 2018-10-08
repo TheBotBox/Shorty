@@ -5,6 +5,7 @@ A simple Java URL Shortener API for android
 **[Features](#features)**  
 **[Implementation](#implementation)**   
 **[API Usage](#api-usage)**  
+**[Credits](#credits)**    
 **[License](#license)**    
 
 # Features  
@@ -34,7 +35,10 @@ where `{latest-version}` corresponds to latest published version <a href='https:
                   // error while url shortening 
                      }
                  });        
-```
+``` 
+#  Credits  
+This java library is working on top of [to.ly](https://to.ly)
+
 
 #   License  
 ![alt tag](https://img.shields.io/github/license/mashape/apistatus.svg)  

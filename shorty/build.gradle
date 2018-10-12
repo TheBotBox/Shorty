@@ -29,3 +29,33 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
 }
+ext {
+
+    bintrayRepo = 'maven'
+    bintrayName = 'shorty'
+
+    publishedGroupId = 'the.bot.box'
+    libraryName = 'SHORTY'
+    artifact = 'shorty'
+
+    libraryDescription = 'Java based URL Shortener API for android'
+
+    siteUrl = 'https://github.com/nuuneoi/FBLikeAndroid'
+    gitUrl = 'https://github.com/nuuneoi/FBLikeAndroid.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'boxbotbarry'
+    developerName = 'Barry Allen'
+    developerEmail = 'boxforbot@gmail.com'
+    organization =''
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/quangctkm9207/template-files/master/android/gradle/install.gradle'
+apply from: 'https://raw.githubusercontent.com/quangctkm9207/template-files/master/android/gradle/bintray.gradle'
+
+

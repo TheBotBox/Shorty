@@ -24,4 +24,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation project(':shorty')
     implementation 'com.android.support:design:26.1.0'
+//    implementation 'the.bot.box:shorty:1.0.0'
 }

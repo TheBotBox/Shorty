@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Shorty shorty = new Shorty.Builder()
                         .setURL(url.getText().toString())
-                        .isLoader(true).build();
+                        .isLoader(true).build(MainActivity.this);
                 shorty.TLDR(new Shorty.Callback() {
                     @Override
                     public void shortURL(final String url) {
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
 
     }
 }

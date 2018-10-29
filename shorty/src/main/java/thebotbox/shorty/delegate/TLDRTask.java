@@ -1,5 +1,7 @@
 package thebotbox.shorty.delegate;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
@@ -9,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -27,11 +30,28 @@ public class TLDRTask extends AsyncTask<Void, String, String> {
     private String url;
     private String BASE_URL = "https://to.ly/api.php?longurl=";
     private Shorty.Callback shortener;
+    private boolean isLoader;
+    private WeakReference<Activity> mContext;
+    private ProgressDialog dialog;
 
-    public TLDRTask(String url, Shorty.Callback shortener) {
+    public TLDRTask(WeakReference<Activity> context, String url, Shorty.Callback shortener, boolean isLoader) {
         this.url = url;
         this.shortener = shortener;
+        this.isLoader = isLoader;
+        this.mContext = context;
     }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        if (this.isLoader) {
+            dialog = new ProgressDialog(mContext.get());
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setTitle("Loading...");
+            dialog.show();
+        }
+    }
+
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -59,6 +79,13 @@ public class TLDRTask extends AsyncTask<Void, String, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        if (this.isLoader) {
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+                dialog = null;
+            }
+        }
+
         if (s != null && !TextUtils.isEmpty(s)) {
             if (!s.contains("Invalid")) {
                 if (shortener != null) {

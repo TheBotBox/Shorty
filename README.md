@@ -22,6 +22,7 @@ where `{latest-version}` corresponds to latest published version <a href='https:
 ```
                  Shorty shorty = new Shorty.Builder()
                         .setURL("htttp:thebotbox.online)
+                        .isLoader(true)
                         .build(mActivity);
                         
                  shorty.TLDR(new Shorty.Callback() {
